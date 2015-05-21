@@ -1,0 +1,76 @@
+<!doctype html>
+<html ng-app="freedomApp">
+
+<head>
+	
+	<!-- Angular.js -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+	
+	<!-- FontAwesome -->
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	
+	<!-- Pym -->
+	<script src="https://s3-us-west-2.amazonaws.com/nationaljournal/libraries/pym.js"></script>
+	
+	<!-- Site-specific styles -->
+	<link rel="stylesheet" href="styles.css" />
+	
+</head>
+
+<body ng-controller="freedomController">
+	
+	
+	<table class="candidates">
+		<thead style="">
+			<tr>
+				<td></td>
+				<td>Voted against <strong>USA PATRIOT Improvement and Reauthorization Act of 2005</strong></td>
+				<td>Voted against <strong>FISA Amendments Act of 2008</strong></td>
+				<td>Voted against <strong>PATRIOT Sunsets Extension Act of 2011</strong></td>
+				<td>Voted for <strong>USA FREEDOM Act of 2014</strong<></td>
+				<td><strong>Score</strong<></td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="senator in senators">
+				<td class="senator">
+					<div class="name">{{senator.Name}}</div>
+					<img ng-src="img/{{senator.LastName}}.jpg" class="{{senator.Party}}" />
+				</td>
+				<td class="vote">
+					<i class="fa fa-check-circle" ng-if="senator['H.R. 3199 (USA PATRIOT Improvement and Reauthorization Act of 2005 )'] == 'Nay'"></i>
+					<i class="fa fa-times-circle" ng-if="senator['H.R. 3199 (USA PATRIOT Improvement and Reauthorization Act of 2005 )'] == 'Yea'"></i>
+					<i class="fa fa-question-circle" ng-if="senator['H.R. 3199 (USA PATRIOT Improvement and Reauthorization Act of 2005 )'] == 'Not voting'"></i>					
+				</td>
+				<td class="vote">
+					<i class="fa fa-check-circle" ng-if="senator['H.R. 6304 (Foreign Intelligence Surveillance Act of 1978 )'] == 'Nay'"></i>
+					<i class="fa fa-times-circle" ng-if="senator['H.R. 6304 (Foreign Intelligence Surveillance Act of 1978 )'] == 'Yea'"></i>
+					<i class="fa fa-question-circle" ng-if="senator['H.R. 6304 (Foreign Intelligence Surveillance Act of 1978 )'] == 'Not voting'"></i>					
+				</td>
+				<td class="vote">
+					<i class="fa fa-check-circle" ng-if="senator['S. 990 (PATRIOT Sunsets Extension Act of 2011 )'] == 'Nay'"></i>
+					<i class="fa fa-times-circle" ng-if="senator['S. 990 (PATRIOT Sunsets Extension Act of 2011 )'] == 'Yea'"></i>
+					<i class="fa fa-question-circle" ng-if="senator['S. 990 (PATRIOT Sunsets Extension Act of 2011 )'] == 'Not voting'"></i>
+				</td>
+				<td class="vote">
+					<i class="fa fa-check-circle" ng-if="senator['S. 2685 (USA FREEDOM Act of 2014 )'] == 'Yea'"></i>
+					<i class="fa fa-times-circle" ng-if="senator['S. 2685 (USA FREEDOM Act of 2014 )'] == 'Nay'"></i>
+					<i class="fa fa-question-circle" ng-if="senator['S. 2685 (USA FREEDOM Act of 2014 )'] == 'Not voting'"></i>					
+				</td>
+				<td class="vote">
+					<div class="sum">{{senator.Sum}}</div>
+				</td>
+				
+			</tr>
+		</tbody>
+	</table>
+</body>
+
+<script src="app.js"></script>
+
+<script type="text/javascript">
+	var pymChild = new pym.Child();
+	setInterval(function(){ pymChild.sendHeight(); console.log("Sending pym ping!") }, 1000);
+</script>
+
+</html>

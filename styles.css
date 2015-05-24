@@ -4,12 +4,20 @@ body {
 	font-family: Roboto, sans-serif;
 }
 
+.purple {
+	color: #6B5B8C;
+}
+
+.orange {
+	color: #F8A61C;
+}
+
 .fa-check-circle {
-	color: #2C7064;
+
 }
 
 .fa-times-circle {
-	color: #EA463D;
+	
 }
 
 .fa-question-circle {

@@ -1,6 +1,12 @@
 app = angular.module("freedomApp", []);
 
 app.controller("freedomController", ["$scope", "$http", "$sce", function($scope, $http, $sce){
+	
+	$scope.startPos = getParameterByName("startPos") || 0;
+	$scope.endPos = getParameterByName("endPos") || 1000;
+	
+
+	
 	$http.get("data.json").success(function(data){
 		
 		// Possible params, name, scoreStart, scoreEnd

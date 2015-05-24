@@ -24,41 +24,37 @@
 		<thead style="">
 			<tr>
 				<td></td>
-				<td>Voted against <strong>USA PATRIOT Improvement and Reauthorization Act of 2005</strong></td>
-				<td>Voted against <strong>FISA Amendments Act of 2008</strong></td>
-				<td>Voted against <strong>PATRIOT Sunsets Extension Act of 2011</strong></td>
-				<td>Voted for <strong>USA FREEDOM Act of 2014</strong<></td>
-				<td><strong>Score</strong<></td>
+				<td><strong>USA PATRIOT Improvement and Reauthorization Act of 2005</strong></td>
+				<td><strong>FISA Amendments Act of 2008</strong></td>
+				<td><strong>PATRIOT Sunsets Extension Act of 2011</strong></td>
+				<td><strong>USA FREEDOM Act of 2014</strong<></td>
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="senator in senators">
+			<tr ng-repeat="senator in senators" ng-if="$index >= startPos && $index <= endPos">
 				<td class="senator">
 					<div class="name">{{senator.Name}}</div>
 					<img ng-src="img/{{senator.LastName}}.jpg" class="{{senator.Party}}" />
 				</td>
 				<td class="vote">
-					<i class="fa fa-check-circle" ng-if="senator['H.R. 3199 (USA PATRIOT Improvement and Reauthorization Act of 2005 )'] == 'Nay'"></i>
-					<i class="fa fa-times-circle" ng-if="senator['H.R. 3199 (USA PATRIOT Improvement and Reauthorization Act of 2005 )'] == 'Yea'"></i>
+					<i class="fa fa-times-circle purple" ng-if="senator['H.R. 3199 (USA PATRIOT Improvement and Reauthorization Act of 2005 )'] == 'Nay'"></i>
+					<i class="fa fa-check-circle orange" ng-if="senator['H.R. 3199 (USA PATRIOT Improvement and Reauthorization Act of 2005 )'] == 'Yea'"></i>
 					<i class="fa fa-question-circle" ng-if="senator['H.R. 3199 (USA PATRIOT Improvement and Reauthorization Act of 2005 )'] == 'Not voting'"></i>					
 				</td>
 				<td class="vote">
-					<i class="fa fa-check-circle" ng-if="senator['H.R. 6304 (Foreign Intelligence Surveillance Act of 1978 )'] == 'Nay'"></i>
-					<i class="fa fa-times-circle" ng-if="senator['H.R. 6304 (Foreign Intelligence Surveillance Act of 1978 )'] == 'Yea'"></i>
+					<i class="fa fa-times-circle purple" ng-if="senator['H.R. 6304 (Foreign Intelligence Surveillance Act of 1978 )'] == 'Nay'"></i>
+					<i class="fa fa-check-circle orange" ng-if="senator['H.R. 6304 (Foreign Intelligence Surveillance Act of 1978 )'] == 'Yea'"></i>
 					<i class="fa fa-question-circle" ng-if="senator['H.R. 6304 (Foreign Intelligence Surveillance Act of 1978 )'] == 'Not voting'"></i>					
 				</td>
 				<td class="vote">
-					<i class="fa fa-check-circle" ng-if="senator['S. 990 (PATRIOT Sunsets Extension Act of 2011 )'] == 'Nay'"></i>
-					<i class="fa fa-times-circle" ng-if="senator['S. 990 (PATRIOT Sunsets Extension Act of 2011 )'] == 'Yea'"></i>
+					<i class="fa fa-times-circle purple" ng-if="senator['S. 990 (PATRIOT Sunsets Extension Act of 2011 )'] == 'Nay'"></i>
+					<i class="fa fa-check-circle orange" ng-if="senator['S. 990 (PATRIOT Sunsets Extension Act of 2011 )'] == 'Yea'"></i>
 					<i class="fa fa-question-circle" ng-if="senator['S. 990 (PATRIOT Sunsets Extension Act of 2011 )'] == 'Not voting'"></i>
 				</td>
 				<td class="vote">
-					<i class="fa fa-check-circle" ng-if="senator['S. 2685 (USA FREEDOM Act of 2014 )'] == 'Yea'"></i>
-					<i class="fa fa-times-circle" ng-if="senator['S. 2685 (USA FREEDOM Act of 2014 )'] == 'Nay'"></i>
+					<i class="fa fa-check-circle purple" ng-if="senator['S. 2685 (USA FREEDOM Act of 2014 )'] == 'Yea'"></i>
+					<i class="fa fa-times-circle orange" ng-if="senator['S. 2685 (USA FREEDOM Act of 2014 )'] == 'Nay'"></i>
 					<i class="fa fa-question-circle" ng-if="senator['S. 2685 (USA FREEDOM Act of 2014 )'] == 'Not voting'"></i>					
-				</td>
-				<td class="vote">
-					<div class="sum">{{senator.Sum}}</div>
 				</td>
 				
 			</tr>
